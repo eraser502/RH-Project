@@ -1,0 +1,48 @@
+.noteContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.noteContent {
+  width: 100%;
+}
+
+.noteBox,
+textarea {
+  width: calc(100% - 32px);
+  padding: 32px 16px;
+  word-break: break-all;
+  white-space: pre;
+  font-size: 0.8rem;
+}
+
+.noteBox {
+  background-color: #f1ebc1;
+}
+
+textarea {
+  resize: none;
+}
+
+.noteButtonBox {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.noteButton {
+  border: none;
+  padding: 4px 12px;
+  background-color: bisque;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.noteButton:hover {
+  transform: scale(1.1);
+}
