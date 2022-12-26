@@ -1,34 +1,20 @@
 import "./App.css";
-import { CheckList } from "./components/CheckList";
-import { Note } from "./components/Note";
+import { Main } from "./pages/Main";
+import { Login } from "./pages/Login";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; //라우팅
 
 function App() {
-  const [kind, setKind] = useState("");
-
   return (
-    <div className="mainContainer">
-      <div style={{fontSize:"1.5rem",fontWeight:"600"}} onClick={()=>setKind("")}>React 교실</div>
-      <div className="mainTopButtonBox">
-        <button className="mainTopButtons" onClick={() => setKind("first")}>
-          Todos
-        </button>
-        <button className="mainTopButtons" onClick={() => setKind("second")}>
-          Note
-        </button>
-        <button className="mainTopButtons" onClick={() => setKind("third")}>
-          Temp
-        </button>
-      </div>
-      <div className="mainContent">
-        {kind === "first" ? (
-          <CheckList />
-        ) : kind === "second" ? (
-          <Note />
-        ) : kind === "third" ? (
-          <div>third component</div>
-        ) : <div>HR-PROJECT</div>}
-      </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="login" />} />
+          <Route path="/main" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path='/*' element={<Navigate to='main' />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

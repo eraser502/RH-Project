@@ -45,6 +45,51 @@
   color: gray;
 }
 
+.TDLModifyingText{
+  width: calc(100% - 40px - 8px);
+  word-break: break-all;
+  font-size: 0.9rem;
+}
+
+.TDLModifyButtonBox {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TDLModifyButton {
+  width: 14px;
+  aspect-ratio: 1/1;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(74, 66, 66);
+  transition: 0.2s;
+}
+
+.TDLModifyButton:hover {
+  transform: scale(1.05);
+  background-color: #bcaa98;
+}
+
+.TDLModifyEndButton{
+  width: 55px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(136, 129, 129, 0.928);
+  transition: 0.2s;
+  color: white;
+  font-weight: 600;
+}
+
+.TDLModifyEndButton:hover {
+  transform: scale(1.05);
+  background-color: #bcaa98;
+}
+
+.diSable{
+  display: none;
+}
 .TDLDeleteButtonBox {
   width: 20px;
   display: flex;

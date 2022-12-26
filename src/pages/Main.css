@@ -1,0 +1,52 @@
+.mainContainer{
+  width: calc(100% - 64px);
+  height: calc(100% - 64px);
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  gap: 32px;
+}
+.logoutBox{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.logoutButton{
+  border: none;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: 0.2s;
+}
+.logoutButton:hover{
+  transform: scale(1.1);
+}
+
+.mainTopButtonBox{
+  display:flex;
+  gap: 12px;
+}
+
+.mainTopButtons{
+  background-color: #c5cf08;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: 0.2s;
+}
+
+.mainTopButtons:hover{
+  transform: scale(1.05);
+}
+
+.mainContent{
+  width: calc(100% - 64px);
+  padding: 32px;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed gray;
+}
