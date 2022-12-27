@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { getData, setData } from "../services/doc.services";
 import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { Modal } from './Modal';
+import { TodoCalendar } from './TodoCalendar';
 
 export const CheckList = () => {
   const [db, setDb] = useState([]);
   const [todos, setTodos] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [pointday, setPointday] = useState(new Date());
   
   const addTodos = (value) => {
     let nextId;
@@ -64,9 +66,12 @@ export const CheckList = () => {
     }
   }, []);
 
+  useEffect(() => {
+    //todos 가져와서
+  }, [pointday]);
   return (
     <div className="TDLContainer">
-      <div className="TDLTitle">To dos</div>
+      <div className="TDLTitle"><span>Todos</span><span>{(pointday.toLocaleDateString()).slice(0, -1)}</span></div>
       <div className="TDLContent">
         {db.map((value) => (
           <div key={value.id} className="TDLContentBox">
@@ -103,6 +108,7 @@ export const CheckList = () => {
           Add
         </button>
       </div>
+      <TodoCalendar pointday={pointday} getPointDay={(day)=>{setPointday(day)}}></TodoCalendar>
     </div>
   );
 };
