@@ -139,6 +139,7 @@
 }
 
 .TDLAddButton {
+  margin-bottom: 20px;
   padding: 4px;
   width: 40px;
   height: 100%;
@@ -151,4 +152,9 @@
 
 .TDLAddButton:hover {
   transform: scale(1.05);
+}
+
+.TodoCalendarBox{
+  display: flex;
+  
 }

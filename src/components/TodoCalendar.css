@@ -158,7 +158,9 @@
   background-color: #e6e6e6;
 }
 
-.highlight {
-  color: rgb(55, 55, 55);
+.highlight{
+  /* color: rgb(55, 55, 55); */
+  color:rgb(177, 10, 189);
   font-weight: 600;
 }
+abbr{text-decoration:none}
