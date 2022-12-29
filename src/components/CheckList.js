@@ -63,8 +63,15 @@ export const CheckList = () => {
     let tmp1 = [...currentDb];
     let tmp2 = [...db];
     tmp1.splice(index, 1);
-    setCurrentDb(tmp1);
-    tmp2[findPointDayIndex(tmp2, pointday.toLocaleDateString())].todo = tmp1;
+    if (tmp1.length !== 0) {
+      setCurrentDb(tmp1);
+      tmp2[findPointDayIndex(tmp2, pointday.toLocaleDateString())].todo = tmp1;
+    } else {
+      setCurrentDb([])
+      tmp2.splice(findPointDayIndex(tmp2, pointday.toLocaleDateString()), 1);
+      setDb(tmp2)
+    }
+
     setData("toDosDB", tmp2);
   };
   const modifyMode = (id) => {
@@ -95,13 +102,13 @@ export const CheckList = () => {
     setData("toDosDB", tmp2);
   };
 
-  useEffect(() => {
-    if (getData("toDosDB") === null) {
-      setData("toDosDB", []);
-    } else {
-      setDb(getData("toDosDB"));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (getData("toDosDB") === null) {
+  //     setData("toDosDB", []);
+  //   } else {
+  //     setDb(getData("toDosDB"));
+  //   }
+  // }, []);
 
   useEffect(() => {
     //todos 가져와서
@@ -123,47 +130,51 @@ export const CheckList = () => {
           <span>{pointday.toLocaleDateString().slice(0, -1)}</span>
         </div>
         <div className="TDLContent">
-          {currentDb.map((value) => (
-            <div key={value.id} className="TDLContentBox">
-              <input
-                type="checkBox"
-                checked={value.checked}
-                onChange={() => handleCheck(value.id)}
-                className="TDLCheckBox"
-              ></input>
-              <div className={value.checked ? "TDLText checked" : "TDLText"}>
-                {value.content}
-              </div>
-              <div className="TDLModifyButtonBox">
-                <button
-                  className="TDLModifyButton"
-                  onClick={() => {
-                    modifyMode(value.id);
-                    setModalIsOpen(true);
-                  }}
-                ></button>
-              </div>
-              {modalIsOpen && value.modify ? (
-                <Modal
-                  name="TDLModify"
-                  content={value.content}
-                  handleClose={() => {
-                    setModalIsOpen(false);
-                  }}
-                  TDLmodify={(e) => {
-                    modifyEndMode(value.id, e);
-                    value.modify = false;
-                  }}
-                ></Modal>
-              ) : null}
-              <div className="TDLDeleteButtonBox">
-                <button
-                  className="TDLDeleteButton"
-                  onClick={() => deleteTodos(value.id)}
-                ></button>
-              </div>
-            </div>
-          ))}
+          {currentDb.length !== 0
+            ? currentDb.map((value) => (
+                <div key={value.id} className="TDLContentBox">
+                  <input
+                    type="checkBox"
+                    checked={value.checked}
+                    onChange={() => handleCheck(value.id)}
+                    className="TDLCheckBox"
+                  ></input>
+                  <div
+                    className={value.checked ? "TDLText checked" : "TDLText"}
+                  >
+                    {value.content}
+                  </div>
+                  <div className="TDLModifyButtonBox">
+                    <button
+                      className="TDLModifyButton"
+                      onClick={() => {
+                        modifyMode(value.id);
+                        setModalIsOpen(true);
+                      }}
+                    ></button>
+                  </div>
+                  {modalIsOpen && value.modify ? (
+                    <Modal
+                      name="TDLModify"
+                      content={value.content}
+                      handleClose={() => {
+                        setModalIsOpen(false);
+                      }}
+                      TDLmodify={(e) => {
+                        modifyEndMode(value.id, e);
+                        value.modify = false;
+                      }}
+                    ></Modal>
+                  ) : null}
+                  <div className="TDLDeleteButtonBox">
+                    <button
+                      className="TDLDeleteButton"
+                      onClick={() => deleteTodos(value.id)}
+                    ></button>
+                  </div>
+                </div>
+              ))
+            : null}
         </div>
         <div className="TDLInputBox">
           <input

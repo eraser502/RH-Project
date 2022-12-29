@@ -1,50 +1,50 @@
-.modalContainer{
-    position:absolute;
-    width:100vw;
-    height:100vh;
-    z-index:100;
-    background-color: rgba(0,0,0,0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top:0;
-    left:0;
+.modalContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
 }
 
-.modalBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:8px;
-    width:200px;
-    height:100px;
-    background-color: pink;
-    outline: 2px solid azure;
-    border-radius: 12px;
+.modalBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 200px;
+  height: 100px;
+  background-color: pink;
+  outline: 2px solid azure;
+  border-radius: 12px;
 }
-.TDLModifyingText{
-    border:none;
-}
-
-.TDLModifyingText:focus{
-    outline:none;
+.TDLModifyingText {
+  border: none;
 }
 
-.modalButtonBox{
-    width:100%;
-    display:flex;
-    justify-content: space-around;
+.TDLModifyingText:focus {
+  outline: none;
 }
-.modalButtons{
-    width: 60px;
-    height: 24px;
-    border-radius: 8px;
-    border:none;
-    color: black;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
-    transition: 0.2s;
+
+.modalButtonBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
-.modalButtons:hover{
-    transform: scale(1.05);
+.modalButtons {
+  width: 60px;
+  height: 24px;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+.modalButtons:hover {
+  transform: scale(1.05);
 }
